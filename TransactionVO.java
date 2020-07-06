@@ -1,4 +1,4 @@
-public class TransacaoVO {
+public class TransactionVO {
     private int id;
     private tyniint transaction_type;
     private datetime transaction_created_date;
@@ -7,7 +7,7 @@ public class TransacaoVO {
     private int quality;
     
 
-    public TransacaoVO(int c, tyniint tt, datetime tcd, datetime tmd, int pc, int q ){
+    public TransactionVO(int c, tyniint tt, datetime tcd, datetime tmd, int pc, int q ){
         this.id = c;
         this.transaction_type = tt;
         this.transaction_created_date = tcd;
