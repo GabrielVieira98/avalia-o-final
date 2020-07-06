@@ -1,0 +1,39 @@
+import java.util.List;
+import java.util.ArrayList;
+
+
+public class TransactionDaoImpl implements TransactionDao{
+    List<Transaction> transaction;
+
+    public TransactionDaoImpl(){
+        transaction = new ArrayList<Transaction>();
+        Transaction transaction1 = new Transaction("321", "Buy");
+        Transaction transaction2 = new Transaction("123", "send");
+        transaction.add(transaction1);
+        transaction.add(transaction2);
+    }
+
+    @Override
+    public void deletaTransaction(Transaction transaction) {
+        transaction.remove(transaction.getId());
+        System.out.println("Transaction id: " + transaction.getId() + " removido do banco de dados");
+    }
+
+    @Override
+    public void editTransaction(Transaction transaction) {
+        Transaction.get(transaction.getId()).setTransaction_type(transaction.getTransaction_type());
+        System.out.println("Transaction id: " + transaction.getId() + " atualizado no banco de dados");
+    }
+
+    @Override
+    public Transaction getTransaction(int id) {
+        // TODO Auto-generated method stub
+        return transaction.get(id);
+    }
+
+    @Override
+    public List<Transaction> getTransaction() {
+        // TODO Auto-generated method stub
+        return transaction;
+    }
+}
