@@ -1,0 +1,28 @@
+public class TransferPatternDemo {
+    public static void main(String[] args) {
+        TransactionBO businessObject = new TransactionBO();
+
+        //listar todos as transações
+        for (transactionVO transaction : businessObject.getTodos()) {
+            System.out.println("Transaction: [Id: " + transaction.getId() + " - Transaction_type: " + transaction.getTransaction_type()+"]");
+        }
+
+        //atualizar os dados
+        TransactionVO transaction = businessObject.getTodos().get(0);
+        transaction.setTransaction_type("buy");
+        businessObject.updatetransaction(transaction);
+
+        //retornar uma transaction somente
+        transaction = businessObject.getTransaction(1);
+        System.out.println("Transaction: [Id: " + transaction.getId() + " - Transaction_type: " + transaction.getTransaction_type()+"]");
+
+        //adicionar uma transaction
+        transaction.setId(3);
+        transaction.setTransaction_type("Buy");
+        businessObject.addTransaction(transaction);
+
+        for (TransactionVO a : businessObject.getTodos()) {
+            System.out.println("Transaction: [Id: " + a.getId() + " - Transaction_type: " + a.getTransaction_type()+"]");
+        }
+    }
+}
