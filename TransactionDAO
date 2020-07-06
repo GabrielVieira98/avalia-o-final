@@ -1,0 +1,8 @@
+import java.util.List;
+
+public interface TransactionDao {
+    public List<Transaction> getTransaction();
+    public Transaction getTransaction(int id);
+    public void editTransaction(Transaction transaction);
+    public void deleteTransaction(Transaction transaction);
+}
